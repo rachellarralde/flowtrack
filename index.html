@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowTrack Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand-container">
+                <img src="flowtrack.png" alt="FlowTrack Logo" class="logo">
+                <h1 class="app-title">FlowTrack Pro</h1>
+            </div>
+            <div class="project-selector">
+                <select id="projectSelect" class="form-control project-select">
+                    <option value="">Select Project</option>
+                </select>
+                <button id="addProjectBtn" class="btn btn--primary btn--sm">+ New Project</button>
+            </div>
+        </header>
+
+        <!-- Main Timer Section -->
+        <main class="main-content">
+            <div class="timer-section">
+                <div class="session-input">
+                    <input 
+                        type="text" 
+                        id="sessionName" 
+                        class="form-control session-name-input" 
+                        placeholder="What are you working on?"
+                        disabled
+                    >
+                </div>
+                
+                <div class="timer-display">
+                    <span id="timerDisplay">00:00:00</span>
+                </div>
+                
+                <div class="timer-controls">
+                    <button id="playPauseBtn" class="btn btn--play" disabled>
+                        <span class="play-icon">▶</span>
+                        <span class="play-text">Start</span>
+                    </button>
+                    <button id="stopBtn" class="btn btn--stop" disabled>
+                        <span>⏹</span>
+                    </button>
+                    <button id="resetBtn" class="btn btn--reset" disabled>
+                        <span>↻</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <h2 class="section-title">Projects</h2>
+            <div id="projectsGrid" class="projects-grid">
+                <div class="empty-state">
+                    <p>No projects yet. Create your first project to get started!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div id="addProjectModal" class="modal hidden">
+        <div class="modal-backdrop" id="addProjectBackdrop"></div>
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Create New Project</h3>
+                <button id="closeAddProjectModal" class="btn btn--close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="newProjectName">Project Name</label>
+                    <input type="text" id="newProjectName" class="form-control" placeholder="Enter project name">
+                </div>
+                <div class="modal-actions">
+                    <button id="cancelAddProject" class="btn btn--secondary">Cancel</button>
+                    <button id="confirmAddProject" class="btn btn--primary">Create Project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="modal hidden">
+        <div class="modal-backdrop" id="projectBackdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalProjectName">Project Details</h3>
+                <button id="closeModal" class="btn btn--close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-label">Total Time:</span>
+                        <span id="modalTotalTime" class="stat-value">00:00:00</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Sessions:</span>
+                        <span id="modalSessionCount" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="sessions-list">
+                    <h4>Work Sessions</h4>
+                    <div id="sessionsList" class="sessions">
+                        <!-- Sessions will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Project Confirmation Modal -->
+    <div id="deleteProjectModal" class="modal hidden">
+        <div class="modal-backdrop" id="deleteProjectBackdrop"></div>
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Delete Project</h3>
+                <button id="closeDeleteProjectModal" class="btn btn--close">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete "<span id="deleteProjectName"></span>"?</p>
+                <p class="text-warning">This will permanently delete the project and all its work sessions. This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button id="cancelDeleteProject" class="btn btn--secondary">Cancel</button>
+                    <button id="confirmDeleteProject" class="btn btn--danger">Delete Project</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
