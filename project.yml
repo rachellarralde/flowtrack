@@ -1,0 +1,40 @@
+name: FlowTrackMenuBar
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+targets:
+  FlowTrackMenuBar:
+    type: application
+    platform: macOS
+    sources:
+      - path: FlowTrackMenuBar
+        excludes:
+          - Info.plist
+          - Assets.xcassets
+    resources:
+      - path: FlowTrackMenuBar/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.rachellarralde.flowtrack-menubar
+        PRODUCT_NAME: FlowTrackMenuBar
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: FlowTrackMenuBar/Info.plist
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        ENABLE_PREVIEWS: YES
+  FlowTrackMenuBarTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: FlowTrackMenuBarTests
+    dependencies:
+      - target: FlowTrackMenuBar
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES

@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0170621EF65501421952B69A /* MenuBarLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DAF38E416D624382177FB /* MenuBarLabelView.swift */; };
+		0211D6D40813310DB4BCEB97 /* FlowTrackPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6FB84FB2EF26E8BCB8184A /* FlowTrackPersistence.swift */; };
+		0A8500BC51592631904E75DD /* CompanionWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC3F27DF17F919DC5CDCA1 /* CompanionWindowView.swift */; };
+		0C04D7D6B095695407867235 /* FlowTrackTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D39658453F179102EF8314 /* FlowTrackTheme.swift */; };
+		1FC9A2B36E362791EAEFFA6C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109651AB7839E594F14662F2 /* Models.swift */; };
+		20988E6D412376AC3C8DD486 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB2B765A3FF5BEF733B759 /* MenuBarContentView.swift */; };
+		2CA7802FB1E25A6356D5FB62 /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437670B4894364D9D457522 /* TimeFormatting.swift */; };
+		6D1D0ED382531B77468C4E1C /* FlowTrackMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DCFD25BDF436FE58893FA3 /* FlowTrackMenuBarApp.swift */; };
+		7519321B687A60E29C587091 /* FlowTrackStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633213190BE75BD2098FEBF /* FlowTrackStoreTests.swift */; };
+		AC771BBCC03648EC8E580001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC771BBCC03648EC8E580000 /* Assets.xcassets */; };
+		F4E291A002F097AA2CB4FD29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DF1A767008D7F60BE9CD /* AppDelegate.swift */; };
+		FDD74254132859FE0D200049 /* FlowTrackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F663968B922EA48CB9596A /* FlowTrackStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		77DE82A8D74A1368CD3C52B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6926DEC3915256C047513A0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DB65CF6157E46892B13A70D;
+			remoteInfo = FlowTrackMenuBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		109651AB7839E594F14662F2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		57F663968B922EA48CB9596A /* FlowTrackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTrackStore.swift; sourceTree = "<group>"; };
+		5A6FB84FB2EF26E8BCB8184A /* FlowTrackPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTrackPersistence.swift; sourceTree = "<group>"; };
+		61BB2B765A3FF5BEF733B759 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		66C7EE2B20ECC7D10B9D7BF7 /* FlowTrackMenuBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowTrackMenuBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67DC3F27DF17F919DC5CDCA1 /* CompanionWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionWindowView.swift; sourceTree = "<group>"; };
+		7B863A246E0FF4DD28207D23 /* FlowTrackMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowTrackMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9633213190BE75BD2098FEBF /* FlowTrackStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTrackStoreTests.swift; sourceTree = "<group>"; };
+		A437670B4894364D9D457522 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
+		AC771BBCC03648EC8E580000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD25DF1A767008D7F60BE9CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E6D39658453F179102EF8314 /* FlowTrackTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTrackTheme.swift; sourceTree = "<group>"; };
+		EF1DAF38E416D624382177FB /* MenuBarLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarLabelView.swift; sourceTree = "<group>"; };
+		F8DCFD25BDF436FE58893FA3 /* FlowTrackMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTrackMenuBarApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3C2CA8DA248CB434AB41C0C0 /* FlowTrackMenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				AD25DF1A767008D7F60BE9CD /* AppDelegate.swift */,
+				AC771BBCC03648EC8E580000 /* Assets.xcassets */,
+				67DC3F27DF17F919DC5CDCA1 /* CompanionWindowView.swift */,
+				F8DCFD25BDF436FE58893FA3 /* FlowTrackMenuBarApp.swift */,
+				5A6FB84FB2EF26E8BCB8184A /* FlowTrackPersistence.swift */,
+				57F663968B922EA48CB9596A /* FlowTrackStore.swift */,
+				E6D39658453F179102EF8314 /* FlowTrackTheme.swift */,
+				61BB2B765A3FF5BEF733B759 /* MenuBarContentView.swift */,
+				EF1DAF38E416D624382177FB /* MenuBarLabelView.swift */,
+				109651AB7839E594F14662F2 /* Models.swift */,
+				A437670B4894364D9D457522 /* TimeFormatting.swift */,
+			);
+			path = FlowTrackMenuBar;
+			sourceTree = "<group>";
+		};
+		4F35320BB4DF195DC2388372 /* FlowTrackMenuBarTests */ = {
+			isa = PBXGroup;
+			children = (
+				9633213190BE75BD2098FEBF /* FlowTrackStoreTests.swift */,
+			);
+			path = FlowTrackMenuBarTests;
+			sourceTree = "<group>";
+		};
+		5A6766EA4E588A2EC374666A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B863A246E0FF4DD28207D23 /* FlowTrackMenuBar.app */,
+				66C7EE2B20ECC7D10B9D7BF7 /* FlowTrackMenuBarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F622BA12C1EB478D02806E95 = {
+			isa = PBXGroup;
+			children = (
+				3C2CA8DA248CB434AB41C0C0 /* FlowTrackMenuBar */,
+				4F35320BB4DF195DC2388372 /* FlowTrackMenuBarTests */,
+				5A6766EA4E588A2EC374666A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A209E053862FFC4317142C7 /* FlowTrackMenuBarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE2DE0D49327107A9057EA19 /* Build configuration list for PBXNativeTarget "FlowTrackMenuBarTests" */;
+			buildPhases = (
+				4F9493D50BE2B4CED9279FFA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4FAFD9CE9DFE90B02D43A01 /* PBXTargetDependency */,
+			);
+			name = FlowTrackMenuBarTests;
+			packageProductDependencies = (
+			);
+			productName = FlowTrackMenuBarTests;
+			productReference = 66C7EE2B20ECC7D10B9D7BF7 /* FlowTrackMenuBarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8DB65CF6157E46892B13A70D /* FlowTrackMenuBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FBCF4D1C708C2FE58779A30 /* Build configuration list for PBXNativeTarget "FlowTrackMenuBar" */;
+			buildPhases = (
+				9FF02C4FEFC1CD0E4CF1AF1E /* Sources */,
+				AC771BBCC03648EC8E580002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlowTrackMenuBar;
+			packageProductDependencies = (
+			);
+			productName = FlowTrackMenuBar;
+			productReference = 7B863A246E0FF4DD28207D23 /* FlowTrackMenuBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6926DEC3915256C047513A0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1A209E053862FFC4317142C7 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					8DB65CF6157E46892B13A70D = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 90F603D841E44DF956A52103 /* Build configuration list for PBXProject "FlowTrackMenuBar" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F622BA12C1EB478D02806E95;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5A6766EA4E588A2EC374666A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DB65CF6157E46892B13A70D /* FlowTrackMenuBar */,
+				1A209E053862FFC4317142C7 /* FlowTrackMenuBarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC771BBCC03648EC8E580002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC771BBCC03648EC8E580001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F9493D50BE2B4CED9279FFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7519321B687A60E29C587091 /* FlowTrackStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FF02C4FEFC1CD0E4CF1AF1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E291A002F097AA2CB4FD29 /* AppDelegate.swift in Sources */,
+				0A8500BC51592631904E75DD /* CompanionWindowView.swift in Sources */,
+				6D1D0ED382531B77468C4E1C /* FlowTrackMenuBarApp.swift in Sources */,
+				0211D6D40813310DB4BCEB97 /* FlowTrackPersistence.swift in Sources */,
+				FDD74254132859FE0D200049 /* FlowTrackStore.swift in Sources */,
+				0C04D7D6B095695407867235 /* FlowTrackTheme.swift in Sources */,
+				20988E6D412376AC3C8DD486 /* MenuBarContentView.swift in Sources */,
+				0170621EF65501421952B69A /* MenuBarLabelView.swift in Sources */,
+				1FC9A2B36E362791EAEFFA6C /* Models.swift in Sources */,
+				2CA7802FB1E25A6356D5FB62 /* TimeFormatting.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4FAFD9CE9DFE90B02D43A01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DB65CF6157E46892B13A70D /* FlowTrackMenuBar */;
+			targetProxy = 77DE82A8D74A1368CD3C52B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1F5AA18C0287474CDC57D351 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FlowTrackMenuBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rachellarralde.flowtrack-menubar";
+				PRODUCT_NAME = FlowTrackMenuBar;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		429B931BB5A1346C7BAE3A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		4B146352E4EBF98022CCB0F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		6181EF5BA11B14E13B4B2F2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlowTrackMenuBar.app/Contents/MacOS/FlowTrackMenuBar";
+			};
+			name = Release;
+		};
+		8D28C8CD6D9E1BD1D98660AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlowTrackMenuBar.app/Contents/MacOS/FlowTrackMenuBar";
+			};
+			name = Debug;
+		};
+		D9F9D896E135794C03A53804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FlowTrackMenuBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rachellarralde.flowtrack-menubar";
+				PRODUCT_NAME = FlowTrackMenuBar;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FBCF4D1C708C2FE58779A30 /* Build configuration list for PBXNativeTarget "FlowTrackMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F5AA18C0287474CDC57D351 /* Debug */,
+				D9F9D896E135794C03A53804 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		90F603D841E44DF956A52103 /* Build configuration list for PBXProject "FlowTrackMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				429B931BB5A1346C7BAE3A8B /* Debug */,
+				4B146352E4EBF98022CCB0F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AE2DE0D49327107A9057EA19 /* Build configuration list for PBXNativeTarget "FlowTrackMenuBarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D28C8CD6D9E1BD1D98660AD /* Debug */,
+				6181EF5BA11B14E13B4B2F2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6926DEC3915256C047513A0E /* Project object */;
+}

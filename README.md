@@ -1,35 +1,43 @@
 # FlowTrack Pro
 
-A simple, elegant time tracking application for managing projects and work sessions.
+FlowTrack now includes a native macOS menu bar app alongside the original static web files.
 
 ## Features
 
-- ⏱️ **Timer Controls** - Start, pause, stop, and reset your work sessions
-- 📁 **Project Management** - Create and organize multiple projects
-- 📊 **Session Tracking** - View detailed work session history
-- 🗑️ **Project Deletion** - Remove projects and all associated sessions
-- 🎨 **Clean UI** - Modern design with light/dark mode support
-- 📱 **Responsive** - Works on desktop and mobile devices
+- ⏱️ **Menu Bar Timer** - Start, pause, stop, and reset work sessions from the macOS menu bar
+- 📁 **Project Management** - Create and switch between projects quickly
+- 📝 **Task Notes** - Add a short note for the current work session
+- 📊 **Recent Sessions** - Review the latest tracked sessions in the popover
+- 💾 **Local Saving** - Projects and sessions are saved on your Mac automatically
+- 🌐 **Original Web Version** - The simple HTML/CSS/JS version is still in the repo
 
-## How to Use
+## Open the macOS App
 
-1. **Create a Project** - Click the "+ New Project" button to add a new project
-2. **Select Project** - Choose a project from the dropdown menu
-3. **Start Tracking** - Enter what you're working on and click "Start"
-4. **Manage Sessions** - Click on any project card to view detailed session history
-5. **Delete Projects** - Hover over a project card and click the trash icon to delete
+1. Open [FlowTrackMenuBar.xcodeproj](/Users/witchaudio/Developer/github-work/flowtrack/FlowTrackMenuBar.xcodeproj)
+2. Choose the `FlowTrackMenuBar` scheme
+3. Press the Run button in Xcode
+4. Look for the timer icon in your macOS menu bar
 
-## Files
+You can also launch the built app directly from:
 
-- `index.html` - Main application structure
-- `app.js` - Core functionality and timer logic
-- `style.css` - Styling and responsive design
-- `flowtrack.png` - Application logo
+- [Build/Build/Products/Debug/FlowTrackMenuBar.app](/Users/witchaudio/Developer/github-work/flowtrack/Build/Build/Products/Debug/FlowTrackMenuBar.app)
 
-## Getting Started
+## Project Structure
 
-Simply open `index.html` in your web browser to start using FlowTrack Pro. No installation or setup required!
+- `FlowTrackMenuBar.xcodeproj` - Xcode project for the native macOS app
+- `FlowTrackMenuBar/` - SwiftUI app source files
+- `FlowTrackMenuBarTests/` - Unit tests for timer and project logic
+- `index.html`, `app.js`, `style.css` - Original web app files
+
+## Using the Menu Bar App
+
+1. Add a project
+2. Select it from the project menu
+3. Type what you're working on
+4. Press `Start`
+5. Use `Pause`, `Stop`, or `Reset` as needed
 
 ## Data Storage
 
-All your projects and work sessions are stored locally in your browser using localStorage, so your data persists between sessions.
+- The original web app stores data in browser `localStorage`
+- The macOS app stores data locally in Application Support on your Mac
