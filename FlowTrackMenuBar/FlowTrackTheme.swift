@@ -1,15 +1,9 @@
 import AppKit
 import SwiftUI
 
-// MARK: - Design tokens (from the FlowTrack design handoff)
+// MARK: - Color helpers
 
 extension Color {
-    /// Blend toward black, like CSS `color-mix(in srgb, c X%, #000)`.
-    func darkened(by fraction: CGFloat) -> Color {
-        let ns = NSColor(self).usingColorSpace(.sRGB) ?? .black
-        return Color(nsColor: ns.blended(withFraction: fraction, of: .black) ?? ns)
-    }
-
     init(hex: UInt32, alpha: Double = 1) {
         self.init(
             .sRGB,
@@ -21,33 +15,127 @@ extension Color {
     }
 }
 
-enum FT {
-    // surfaces
-    static let win = Color(hex: 0x1A1B1F)        // window base
-    static let bg0 = Color(hex: 0x1D1E23)        // main detail surface
-    static let side = Color(hex: 0x141519)       // sidebar
-    static let bg1 = Color(hex: 0x212329)        // cards
-    static let bg2 = Color(hex: 0x272A31)        // raised / inputs
-    static let bgHover = Color(hex: 0x2C2F37)
-    static let line = Color.white.opacity(0.07)
-    static let line2 = Color.white.opacity(0.11)
+// MARK: - Ledger design tokens (light Swiss editorial)
 
-    // text
-    static let text = Color(hex: 0xF4F5F7)
-    static let text2 = Color(hex: 0xA6ABB6)
-    static let text3 = Color(hex: 0x6E7480)
-    static let text4 = Color(hex: 0x52575F)
+enum Ledger {
+    // paper + ink
+    static let paper = Color(hex: 0xF5F4F0)        // window ground
+    static let paperDeep = Color(hex: 0xEDECE7)    // title strip, pressed
+    static let hover = Color(hex: 0xEBEAE4)        // row hover
+    static let surface = Color.white               // invoice sheet, table hover
+    static let ink = Color(hex: 0x111110)          // primary text, rules, selected rows
+    static let ink2 = Color(hex: 0x5F5E59)         // secondary text (5:1 on paper)
+    static let ink3 = Color(hex: 0x8A8882)         // placeholder / index numbers
+    static let rule = Color(hex: 0xDAD8D1)         // hairlines
+    static let ruleStrong = Color(hex: 0xC9C7BF)   // dashed grid, quiet borders
 
-    // accent (green) + money (gold) + danger
-    static let accent = Color(hex: 0x34D17F)
-    static let accentFg = Color(hex: 0x08130C)
-    static let accentGlow = Color(hex: 0x34D17F, alpha: 0.30)
-    static let accentSoft = Color(hex: 0x34D17F, alpha: 0.14)
-    static let earn = Color(hex: 0xE7B765)
-    static let earnSoft = Color(hex: 0xE7B765, alpha: 0.13)
-    static let amber = Color(hex: 0xE7B765)
-    static let amberFg = Color(hex: 0x1D1605)
-    static let danger = Color(hex: 0xFF6B6B)
+    // signal accent — always under ink text, never as text on paper
+    static let signal = Color(hex: 0xFF5A1F)
+    static let signalHover = Color(hex: 0xFF7240)
+    static let danger = Color(hex: 0xB42318)
+
+    // inverted (black) panels: timer band
+    static let invText = Color(hex: 0xF5F4F0)
+    static let invMuted = Color(hex: 0xA9A79F)
+    static let invRule = Color(hex: 0x3A3936)
+    static let invDim = Color(hex: 0x6E6C66)       // idle clock digits
+    static let invOff = Color(hex: 0x55534E)       // disabled controls
+
+    static let radius: CGFloat = 4
+}
+
+enum LedgerType {
+    /// Heavy grotesk for headlines and big numerals.
+    static func display(_ size: CGFloat, weight: Font.Weight = .heavy) -> Font {
+        .system(size: size, weight: weight, design: .default)
+    }
+
+    static func text(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .system(size: size, weight: weight, design: .default)
+    }
+
+    static func mono(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .system(size: size, weight: weight, design: .monospaced)
+    }
+
+    /// Tight Swiss tracking for display sizes (about -4%).
+    static func tracking(for size: CGFloat) -> CGFloat {
+        -size * 0.04
+    }
+}
+
+/// Small uppercase mono caption ("TOTAL TIME", "TASK").
+struct LedgerLabel: View {
+    let text: String
+    var color: Color = Ledger.ink
+    var size: CGFloat = 11
+
+    init(_ text: String, color: Color = Ledger.ink, size: CGFloat = 11) {
+        self.text = text
+        self.color = color
+        self.size = size
+    }
+
+    var body: some View {
+        Text(text.uppercased())
+            .font(LedgerType.mono(size, weight: .semibold))
+            .tracking(size * 0.08)
+            .foregroundStyle(color)
+    }
+}
+
+/// Square project color chip.
+struct LedgerSwatch: View {
+    let color: Color
+    var size: CGFloat = 9
+
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(width: size, height: size)
+    }
+}
+
+/// Orange block button with ink label (Start, Done).
+struct LedgerSignalButtonStyle: ButtonStyle {
+    var height: CGFloat = 44
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(LedgerType.text(15, weight: .bold))
+            .foregroundStyle(Ledger.ink)
+            .padding(.horizontal, 18)
+            .frame(minHeight: height)
+            .background(
+                RoundedRectangle(cornerRadius: Ledger.radius, style: .continuous)
+                    .fill(configuration.isPressed ? Ledger.signalHover : Ledger.signal)
+            )
+            .contentShape(Rectangle())
+    }
+}
+
+/// 1px ink outline button (Cancel, Copy summary, New project).
+struct LedgerOutlineButtonStyle: ButtonStyle {
+    var height: CGFloat = 44
+    var foreground: Color = Ledger.ink
+    var border: Color = Ledger.ink
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(LedgerType.text(14, weight: .semibold))
+            .foregroundStyle(foreground)
+            .padding(.horizontal, 14)
+            .frame(minHeight: height)
+            .background(
+                RoundedRectangle(cornerRadius: Ledger.radius, style: .continuous)
+                    .fill(configuration.isPressed ? Ledger.paperDeep : Color.clear)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: Ledger.radius, style: .continuous)
+                    .strokeBorder(border, lineWidth: 1)
+            )
+            .contentShape(Rectangle())
+    }
 }
 
 // MARK: - Folder colors
@@ -57,13 +145,13 @@ enum FolderPalette {
 
     static func color(named name: String?) -> Color {
         switch name {
-        case "orange": Color(hex: 0xF08A3C)
-        case "blue": Color(hex: 0x5B8CFF)
-        case "green": Color(hex: 0x46C46E)
-        case "pink": Color(hex: 0xE85C9A)
-        case "violet": Color(hex: 0xA684FF)
-        case "teal": Color(hex: 0x2DC8C0)
-        default: Color(hex: 0xF08A3C)
+        case "orange": Color(hex: 0xE8742A)
+        case "blue": Color(hex: 0x2F5BEA)
+        case "green": Color(hex: 0x12936A)
+        case "pink": Color(hex: 0xD63E78)
+        case "violet": Color(hex: 0x7A4FD6)
+        case "teal": Color(hex: 0x0E8C8C)
+        default: Color(hex: 0xE8742A)
         }
     }
 
@@ -74,38 +162,6 @@ enum FolderPalette {
             return color(named: name)
         }
         return color(named: names[index % names.count])
-    }
-}
-
-// MARK: - Gradient folder tile
-
-struct FolderTile: View {
-    let color: Color
-    var size: CGFloat = 30
-    var radius: CGFloat = 8
-    var icon: CGFloat = 14
-
-    var body: some View {
-        RoundedRectangle(cornerRadius: radius, style: .continuous)
-            .fill(
-                LinearGradient(
-                    colors: [color, color.darkened(by: 0.3)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: radius, style: .continuous)
-                    .stroke(Color.white.opacity(0.25), lineWidth: 0.5)
-                    .blendMode(.plusLighter)
-            )
-            .frame(width: size, height: size)
-            .shadow(color: color.opacity(0.4), radius: 5, y: 3)
-            .overlay(
-                Image(systemName: "folder.fill")
-                    .font(.system(size: icon, weight: .medium))
-                    .foregroundStyle(Color.white.opacity(0.96))
-            )
     }
 }
 

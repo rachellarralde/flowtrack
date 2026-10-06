@@ -14,6 +14,7 @@
 		1FC9A2B36E362791EAEFFA6C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109651AB7839E594F14662F2 /* Models.swift */; };
 		20988E6D412376AC3C8DD486 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB2B765A3FF5BEF733B759 /* MenuBarContentView.swift */; };
 		2CA7802FB1E25A6356D5FB62 /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437670B4894364D9D457522 /* TimeFormatting.swift */; };
+		3B4F8066795A4F5E9D64C7BB /* PopoverDismissalPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B836C7A104424BA24FEC4 /* PopoverDismissalPolicy.swift */; };
 		6D1D0ED382531B77468C4E1C /* FlowTrackMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DCFD25BDF436FE58893FA3 /* FlowTrackMenuBarApp.swift */; };
 		7519321B687A60E29C587091 /* FlowTrackStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633213190BE75BD2098FEBF /* FlowTrackStoreTests.swift */; };
 		AC771BBCC03648EC8E580001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC771BBCC03648EC8E580000 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		61BB2B765A3FF5BEF733B759 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
 		66C7EE2B20ECC7D10B9D7BF7 /* FlowTrackMenuBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowTrackMenuBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DC3F27DF17F919DC5CDCA1 /* CompanionWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionWindowView.swift; sourceTree = "<group>"; };
+		6B1B836C7A104424BA24FEC4 /* PopoverDismissalPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverDismissalPolicy.swift; sourceTree = "<group>"; };
 		7B863A246E0FF4DD28207D23 /* FlowTrackMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowTrackMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9633213190BE75BD2098FEBF /* FlowTrackStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowTrackStoreTests.swift; sourceTree = "<group>"; };
 		A437670B4894364D9D457522 /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				61BB2B765A3FF5BEF733B759 /* MenuBarContentView.swift */,
 				EF1DAF38E416D624382177FB /* MenuBarLabelView.swift */,
 				109651AB7839E594F14662F2 /* Models.swift */,
+				6B1B836C7A104424BA24FEC4 /* PopoverDismissalPolicy.swift */,
 				A437670B4894364D9D457522 /* TimeFormatting.swift */,
 			);
 			path = FlowTrackMenuBar;
@@ -204,6 +207,7 @@
 				20988E6D412376AC3C8DD486 /* MenuBarContentView.swift in Sources */,
 				0170621EF65501421952B69A /* MenuBarLabelView.swift in Sources */,
 				1FC9A2B36E362791EAEFFA6C /* Models.swift in Sources */,
+				3B4F8066795A4F5E9D64C7BB /* PopoverDismissalPolicy.swift in Sources */,
 				2CA7802FB1E25A6356D5FB62 /* TimeFormatting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
