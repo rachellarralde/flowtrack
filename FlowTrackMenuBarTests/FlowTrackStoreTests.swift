@@ -2,6 +2,17 @@ import XCTest
 @testable import FlowTrackMenuBar
 
 final class FlowTrackStoreTests: XCTestCase {
+    func testPopoverDismissalPolicyKeepsKeyboardInputInsideTaskField() {
+        XCTAssertFalse(PopoverDismissalPolicy.shouldClose(for: .keyboardInputInsidePopover))
+        XCTAssertFalse(PopoverDismissalPolicy.shouldClose(for: .mouseDownInsidePopover))
+        XCTAssertFalse(PopoverDismissalPolicy.shouldClose(for: .statusItemClick))
+    }
+
+    func testPopoverDismissalPolicyClosesForOutsideInteractions() {
+        XCTAssertTrue(PopoverDismissalPolicy.shouldClose(for: .mouseDownOutsidePopover))
+        XCTAssertTrue(PopoverDismissalPolicy.shouldClose(for: .appDidResignActive))
+    }
+
     @MainActor
     func testStopCreatesSessionWithPausedAndRunningTime() throws {
         let baseDate = Date(timeIntervalSince1970: 1_000)

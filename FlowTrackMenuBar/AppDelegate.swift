@@ -8,14 +8,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     private let popover = NSPopover()
     private var statusItem: NSStatusItem?
     private var refreshTimer: Timer?
+    private var localEventMonitor: Any?
+    private var globalEventMonitor: Any?
+    private var resignActiveObserver: NSObjectProtocol?
     private weak var companionWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        guard !isRunningUnitTests else { return }
         guard !terminateIfDuplicateInstance() else { return }
 
         setupPopover()
         setupStatusItem()
         startRefreshingStatusItem()
+    }
+
+    private var isRunningUnitTests: Bool {
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
     }
 
     /// Prevents a second copy from adding a duplicate menu bar icon.
@@ -34,16 +42,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
 
     func applicationWillTerminate(_ notification: Notification) {
         refreshTimer?.invalidate()
+        stopPopoverDismissalMonitoring()
     }
 
     func popoverDidClose(_ notification: Notification) {
+        stopPopoverDismissalMonitoring()
         updateStatusItem()
     }
 
     private func setupPopover() {
-        popover.behavior = .transient
+        popover.behavior = .applicationDefined
         popover.delegate = self
-        popover.appearance = NSAppearance(named: .darkAqua)
+        popover.appearance = NSAppearance(named: .aqua)
         popover.contentSize = NSSize(width: 440, height: 220)
         popover.contentViewController = NSHostingController(
             rootView: MenuBarContentView(store: store, openCompanion: { [weak self] in
@@ -83,9 +93,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         let symbol = store.timer.isRunning
             ? "record.circle.fill"
             : (store.timer.isPaused ? "pause.circle.fill" : "timer")
-        let image = NSImage(named: "MenuBarIcon")
+        let assetName = store.timer.isActive ? "MenuBarIconActive" : "MenuBarIcon"
+        let image = NSImage(named: assetName)
             ?? NSImage(systemSymbolName: symbol, accessibilityDescription: "FlowTrack")
         image?.isTemplate = true
+        image?.accessibilityDescription = store.timer.isRunning
+            ? "FlowTrack, recording"
+            : (store.timer.isPaused ? "FlowTrack, paused" : "FlowTrack")
         image?.size = NSSize(width: 18, height: 18)
         button.image = image
         button.imageScaling = .scaleProportionallyDown
@@ -99,7 +113,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         }
 
         if popover.isShown {
-            popover.performClose(nil)
+            closePopover()
             return
         }
 
@@ -109,11 +123,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
             })
         )
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        startPopoverDismissalMonitoring()
         NSApp.activate(ignoringOtherApps: true)
     }
 
     func openCompanionWindow() {
-        popover.performClose(nil)
+        closePopover()
 
         if let window = companionWindow, window.isVisible {
             window.makeKeyAndOrderFront(nil)
@@ -128,6 +143,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
             defer: false
         )
         window.title = store.selectedProject?.name ?? "FlowTrack"
+        window.appearance = NSAppearance(named: .aqua)
+        window.backgroundColor = NSColor(Ledger.paper)
         window.titleVisibility = .visible
         window.toolbarStyle = .unified
         window.minSize = NSSize(width: 860, height: 560)
@@ -141,5 +158,87 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
         companionWindow = window
+    }
+
+    private func closePopover() {
+        guard popover.isShown else {
+            stopPopoverDismissalMonitoring()
+            return
+        }
+
+        popover.performClose(nil)
+        stopPopoverDismissalMonitoring()
+    }
+
+    private func closePopoverIfPolicyAllows(_ event: PopoverDismissalEvent) {
+        guard PopoverDismissalPolicy.shouldClose(for: event) else {
+            return
+        }
+
+        closePopover()
+    }
+
+    private func startPopoverDismissalMonitoring() {
+        stopPopoverDismissalMonitoring()
+
+        localEventMonitor = NSEvent.addLocalMonitorForEvents(
+            matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]
+        ) { [weak self] event in
+            self?.handleLocalMouseEvent(event) ?? event
+        }
+
+        globalEventMonitor = NSEvent.addGlobalMonitorForEvents(
+            matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]
+        ) { [weak self] _ in
+            Task { @MainActor in
+                self?.closePopoverIfPolicyAllows(.mouseDownOutsidePopover)
+            }
+        }
+
+        resignActiveObserver = NotificationCenter.default.addObserver(
+            forName: NSApplication.didResignActiveNotification,
+            object: NSApp,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                self?.closePopoverIfPolicyAllows(.appDidResignActive)
+            }
+        }
+    }
+
+    private func stopPopoverDismissalMonitoring() {
+        if let localEventMonitor {
+            NSEvent.removeMonitor(localEventMonitor)
+            self.localEventMonitor = nil
+        }
+
+        if let globalEventMonitor {
+            NSEvent.removeMonitor(globalEventMonitor)
+            self.globalEventMonitor = nil
+        }
+
+        if let resignActiveObserver {
+            NotificationCenter.default.removeObserver(resignActiveObserver)
+            self.resignActiveObserver = nil
+        }
+    }
+
+    private func handleLocalMouseEvent(_ event: NSEvent) -> NSEvent {
+        guard popover.isShown else {
+            return event
+        }
+
+        if event.window === popover.contentViewController?.view.window {
+            closePopoverIfPolicyAllows(.mouseDownInsidePopover)
+            return event
+        }
+
+        if event.window === statusItem?.button?.window {
+            closePopoverIfPolicyAllows(.statusItemClick)
+            return event
+        }
+
+        closePopoverIfPolicyAllows(.mouseDownOutsidePopover)
+        return event
     }
 }
